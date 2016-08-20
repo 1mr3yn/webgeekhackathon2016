@@ -13,8 +13,11 @@
 
 Route::get('/', function()
 {
-	return View::make('layouts.user_home');
+	sweetAlert('Oops', 'Welcome', '', 'info');
+  return View::make('layouts.user_home');
+
 });
+
 
 Route::resource('user', 'UserController');
 

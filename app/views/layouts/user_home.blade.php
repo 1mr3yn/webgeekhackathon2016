@@ -157,6 +157,18 @@
 {{ HTML::script('/js/app.min.js') }}
 {{ HTML::script('/js/demo.js') }}
 {{ HTML::script('/plugins/sweetalert/sweetalert.min.js') }}
+ 
+
+ @if ( Session::has('sweet_alert_text') )
+    <script>
+        swal({
+            text: "{{ Session::get('sweet_alert_text') }}",
+            title: "{{ Session::get('sweet_alert_title') }}",
+            timer: "{{ Session::get('sweet_alert_timer') }}",
+            type: "{{ Session::get('sweet_alert_type') }}",
+        });
+    </script>
+@endIf
 
 </body>
 </html>
