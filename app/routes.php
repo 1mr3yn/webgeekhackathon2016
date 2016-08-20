@@ -13,5 +13,9 @@
 
 Route::get('/', function()
 {
-	return View::make('adminLTE2');
+	return View::make('layouts.user_home');
 });
+
+Route::resource('user', 'UserController');
+
+
