@@ -21,7 +21,7 @@ class AlertController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		
 	}
 
 
@@ -32,7 +32,16 @@ class AlertController extends \BaseController {
 	 */
 	public function store()
 	{
-		 
+		$date = strtotime(Input::get('time'));
+		Alert::create([
+		 'user_id'  => Input::get('user_id'),
+	   'lat'		=> Input::get('lat'),
+	   'lng'		=> Input::get('lng'),
+	   'type'		=> Input::get('type'),
+	   'remarks' => Input::get('remarks'),
+	   'created_at' => date("Y-m-d H:i:s",$date)
+		]);
+		return Response::JSON(['success'=>true]);
 	}
 
 
