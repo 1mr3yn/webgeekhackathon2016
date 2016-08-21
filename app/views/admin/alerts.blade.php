@@ -82,7 +82,6 @@
         var notificationsChannel = pusher.subscribe('notification-channel');
         notificationsChannel.bind('notification-event', function(notification){
             var userData = notification.userData;
-            $('div.notification').text(userData);
             app.updateAlertList(userData);
         });
 

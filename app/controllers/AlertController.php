@@ -47,6 +47,8 @@ class AlertController extends \BaseController {
 
     Pusherer::trigger('notification-channel', 'notification-event', array( 'userData' => $user ));
 
+    sweetAlert('SOS', 'New Distress Call Received', '', 'info');
+
 		return Response::JSON(['success'=>true]);
 	}
 

@@ -42,6 +42,7 @@ var app = new Vue({
      sendAction: function(id)
      {
        $.get('/alerts/'+id+'/edit', function(res) {
+        
          location.reload();
        }.bind(this));
 
