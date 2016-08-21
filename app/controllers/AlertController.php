@@ -34,12 +34,12 @@ class AlertController extends \BaseController {
 	{
 		$date = strtotime(Input::get('time'));
 		$alert = Alert::create([
-		 'user_id'  => Input::get('user_id'),
-	   'lat'		=> Input::get('lat'),
-	   'lng'		=> Input::get('lng'),
-	   'type'		=> Input::get('type'),
-	   'remarks' => Input::get('remarks'),
-	   'created_at' => date("Y-m-d H:i:s",$date)
+		  'user_id'  => Input::get('user_id'),
+	    'lat'		=> Input::get('lat'),
+	    'lng'		=> Input::get('lng'),
+	    'type'		=> Input::get('type'),
+	    'remarks' => Input::get('remarks'),
+	    'created_at' => date("Y-m-d H:i:s",$date)
 		]);
 		Log::info("Distress Call recorded");
 
@@ -101,6 +101,10 @@ class AlertController extends \BaseController {
     Log::info("SMS Sent!");
     
     sweetAlert('SOS', 'Notification Sent', '', 'success');
+
+    $alert = Alert::find($id);
+    $alert->remarks = 1;
+    $alert->save();
     
     exit(0);
 

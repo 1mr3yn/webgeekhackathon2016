@@ -26,9 +26,7 @@ var app = new Vue({
      
      updateAlertList: function(userData)
      {  
-       console.log(this.alerts)
-       this.alerts.push(userData)
-       console.log(userData)
+       location.reload();
      },
 
      createMap: function() {
