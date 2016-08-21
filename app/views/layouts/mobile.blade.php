@@ -65,7 +65,7 @@
                     <i class="fa fa-shield"></i>
                   </div>
                   <span class="small-box-footer">
-                   info
+                   &nbsp;
                   </span>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                 <i class="fa fa-fire"></i>
               </div>
               <span class="small-box-footer">
-               info
+               &nbsp;
               </span>
             </div>
           </div>
@@ -100,7 +100,7 @@
                 <i class="fa fa-ambulance"></i>
               </div>
               <span class="small-box-footer">
-                info
+                &nbsp;
               </span>
             </div>
            </div>
@@ -117,7 +117,7 @@
                 <i class="fa fa-life-ring"></i>
               </div>
               <span class="small-box-footer">
-                info
+                &nbsp;
               </span>
             </div>
           </div>
