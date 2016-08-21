@@ -53,12 +53,11 @@
       <!-- Main content -->
       <section class="content">
        <div class="row">
-          <hr>
-          
+               
            <a href="">
              <div class="col-lg-3 col-xs-6">
                <div class="small-box bg-green">
-                  <div class="inner">
+                  <div class="inner" data-type='police'>
                     <h3>Police</h3>
                     
                   </div>
@@ -76,7 +75,7 @@
          <a href="">
            <div class="col-lg-3 col-xs-6">
              <div class="small-box bg-red">
-              <div class="inner">
+              <div class="inner" data-type='fire'>
                 <h3>Fire</h3>
                 
               </div>
@@ -93,7 +92,7 @@
          <a href=""> 
            <div class="col-lg-3 col-xs-6">
             <div class="small-box bg-blue">
-              <div class="inner">
+              <div class="inner" data-type='medical'>
                 <h3>Hospitals</h3>
                 
               </div>
@@ -110,7 +109,7 @@
          <a href="">
            <div class="col-lg-3 col-xs-6">
             <div class="small-box bg-aqua">
-              <div class="inner">
+              <div class="inner" data-type='rescue'>
                 <h3>Rescue</h3>
                 
               </div>
@@ -177,17 +176,36 @@
             },function(e){                
             },{enableHighAccuracy: true ,timeout:60000, maximumAge:600000});
 
-
         } else {
             x.innerHTML = "Geolocation is not supported by this browser.";
         }
       }
-      
-      $("div.small-box .inner").click(function(e){
-        getLocation();
+      getLocation();
+      $("a").click(function(e){
         e.preventDefault();
-        alert([coords.latitude,coords.longitude].join("--"))
-      })
+        var inner = $(this).find('.inner');
+        var date = new Date;
+        var type = inner.data('type');
+        
+        $.post('/alerts',{
+          user_id:     1,
+          lat:    coords.latitude,
+          lng:    coords.longitude,
+          type:   type,
+          remarks: "",
+          time: date.toJSON()
+
+        },function(r){
+          alert("We have received your distress call.\n We will get back to you as soon as possible!");
+
+        });
+
+
+      });
+      
+        
+        
+      
 
 
  });
