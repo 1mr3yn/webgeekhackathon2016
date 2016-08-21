@@ -28,7 +28,16 @@
   <![endif]-->
 <body class="hold-transition skin-red layout-top-nav">
 <div class="wrapper">
-
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+        <center>
+          <a href="#" class="navbar-brand"><b>911+ ph</b></a>          
+          </center>
+        </div>
+    </nav>
+  </header>
     <!-- Full Width Column -->
   <div class="content-wrapper">
     <div class="container">
@@ -36,8 +45,8 @@
       <center>
       <section class="content-header">
         <h1 style='color:#cd4126'>
-          911+
-          <small>v 1.0</small>
+          
+          <small></small>
         </h1>
       </section>
       </center>
