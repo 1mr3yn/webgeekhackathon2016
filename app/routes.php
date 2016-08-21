@@ -19,6 +19,12 @@ Route::get('/', function()
 });
 
 
+Route::get('distress-call-form',function(){
+  //outputs the html form for mobile
+  return View::make("layouts.mobile");
+});
+
+
 Route::resource('user', 'UserController');
 
 
