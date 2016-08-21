@@ -10,7 +10,8 @@ class AlertController extends \BaseController {
 	 */
 	public function index()
 	{
-	  return Alert::with('user')->latest()->get();
+	  
+    return Alert::with('user')->latest()->get();
 	}
 
 
@@ -47,8 +48,6 @@ class AlertController extends \BaseController {
 
     Pusherer::trigger('notification-channel', 'notification-event', array( 'userData' => $user ));
 
-    sweetAlert('SOS', 'New Distress Call Received', '', 'info');
-
 		return Response::JSON(['success'=>true]);
 	}
 
@@ -61,7 +60,9 @@ class AlertController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$user = Alert::with('user')->where('id',$id)->get()->toArray();
+		sweetAlert('SOS', 'New Distress Call Received', '', 'info');
+
+    $user = Alert::with('user')->where('id',$id)->get()->toArray();
 
     Pusherer::trigger('notification-channel', 'notification-event', array( 'userData' => $user ));
 	}
@@ -147,6 +148,8 @@ class AlertController extends \BaseController {
     $response = curl_exec($curl_handler);
     curl_close($curl_handler);
     Log::info("SMS Sent!");
+
+    
 		
     exit(0);
 

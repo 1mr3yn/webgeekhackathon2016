@@ -163,6 +163,18 @@
 {{ HTML::script('/plugins/sweetalert/sweetalert.min.js') }}
 {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js')}}
 
+@if ( Session::has('sweet_alert_text') )
+    <script>
+        swal({
+            text: "{{ Session::get('sweet_alert_text') }}",
+            title: "{{ Session::get('sweet_alert_title') }}",
+            timer: "{{ Session::get('sweet_alert_timer') }}",
+            type: "{{ Session::get('sweet_alert_type') }}",
+        });
+    </script>
+@endIf
+
+
 
 @yield('scripts')
 

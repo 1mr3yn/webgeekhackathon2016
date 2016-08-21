@@ -26,7 +26,13 @@ var app = new Vue({
      
      updateAlertList: function(userData)
      {  
-       location.reload();
+
+        location.reload();
+         swal({
+            text: "New Distress Call Received",
+            title: "SOS",
+            type: "info",
+        });
      },
 
      createMap: function() {
@@ -42,7 +48,11 @@ var app = new Vue({
      sendAction: function(id)
      {
        $.get('/alerts/'+id+'/edit', function(res) {
-        
+          swal({
+            text: "Notification Sent",
+            title: "SOS",
+            type: "success",
+        });
          location.reload();
        }.bind(this));
 
