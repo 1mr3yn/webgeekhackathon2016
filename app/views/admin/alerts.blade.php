@@ -57,7 +57,6 @@
           <div class="col-xs-4">
           <div class="box box-danger">
             <div class="box-body">
-              <div class="notification">
                <div id="places"> <div>
             </div>
           </div>
