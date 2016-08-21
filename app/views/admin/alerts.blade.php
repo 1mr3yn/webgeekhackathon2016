@@ -33,9 +33,11 @@
                      <span class="btn btn-danger btn-xs">@{{alert.type}}</span>
                     </a>
                   </td>
-                  <td>@{{alert.remarks}}</td>
-                  <td><button class="btn btn-primary btn-xs" 
-                      @click="sendAction(alert.id)">Acknowledge</button>
+                  <td><small>@{{alert.remarks}}</small></td>
+                  <td>
+                   <button class="btn btn-primary btn-xs" v-if="alert.remarks == ''" 
+                      @click="sendAction(alert.id)">Acknowledge
+                  </button>
                   </td> 
                 </tr>
               </tbody>

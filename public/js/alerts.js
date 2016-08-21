@@ -30,19 +30,20 @@ var app = new Vue({
      },
 
      createMap: function() {
+
        var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 14.583031, lng: 121.063733},
           zoom: 16
         });
 
+
      },
 
      sendAction: function(id)
      {
-
        $.get('/alerts/'+id+'/edit', function(res) {
-         console.log(res);
-       });
+         location.reload();
+       }.bind(this));
 
       },
 

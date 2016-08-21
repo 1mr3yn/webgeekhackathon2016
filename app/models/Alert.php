@@ -24,5 +24,15 @@ class Alert extends Eloquent {
      return Carbon::createFromFormat('Y-m-d H:i:s', $value)->diffForHumans();
    }
 
+   public function getRemarksAttribute($value)
+   { 
+     $remarks = '';
+     if($value){
+      $remarks = 'Unit Dispatched';
+     }
+     return $remarks;
+
+   }
+
   
 }
