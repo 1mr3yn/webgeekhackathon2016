@@ -41,6 +41,7 @@ class AlertController extends \BaseController {
 	   'remarks' => Input::get('remarks'),
 	   'created_at' => date("Y-m-d H:i:s",$date)
 		]);
+		Log::info("Distress Call recorded");
 		return Response::JSON(['success'=>true]);
 	}
 
@@ -104,6 +105,7 @@ class AlertController extends \BaseController {
     curl_setopt($curl_handler, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($curl_handler);
     curl_close($curl_handler);
+    Log::info("SMS Sent!");
 		
     exit(0);
 
