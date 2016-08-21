@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	sweetAlert('Oops', 'Welcome', '', 'info');
+	sweetAlert('SOS', 'Notification Sent', '', 'success');
   return View::make('layouts.user_home');
 
 });
