@@ -32,6 +32,7 @@ return array(
     'ClassPreloader\\Parser\\DirVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
+    'CreateAlertsTable' => $baseDir . '/app/database/migrations/2016_08_21_031205_create_alerts_table.php',
     'CreatePasswordResetTable' => $baseDir . '/app/database/migrations/2016_08_20_015315_create_password_reset_table.php',
     'CreateUser' => $baseDir . '/app/database/migrations/2016_08_20_015057_create_user.php',
     'Crypt_AES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',

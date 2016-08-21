@@ -224,6 +224,7 @@ class ComposerStaticInit2f711c99a5f8db7a45d69bdacf3c8ef1
         'ClassPreloader\\Parser\\DirVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
         'ClassPreloader\\Parser\\FileVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
         'ClassPreloader\\Parser\\NodeTraverser' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
+        'CreateAlertsTable' => __DIR__ . '/../..' . '/app/database/migrations/2016_08_21_031205_create_alerts_table.php',
         'CreatePasswordResetTable' => __DIR__ . '/../..' . '/app/database/migrations/2016_08_20_015315_create_password_reset_table.php',
         'CreateUser' => __DIR__ . '/../..' . '/app/database/migrations/2016_08_20_015057_create_user.php',
         'Crypt_AES' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
