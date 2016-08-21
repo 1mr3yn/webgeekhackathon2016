@@ -20,5 +20,8 @@ Route::get('/', function()
 
 
 Route::resource('user', 'UserController');
+Route::resource('admin', 'AdminController');
+Route::resource('alerts','AlertController');
+
 
 
