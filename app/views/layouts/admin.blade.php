@@ -16,7 +16,7 @@
  {{ HTML::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') }}
  {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css') }}
  {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css') }}
- {{ HTML::style('/css/AdminLTE.min.css') }}
+ {{ HTML::style('/css/AdminLTE.css') }}
  {{ HTML::style('/css/skins/_all-skins.min.css') }}
  {{ HTML::style('/plugins/sweetalert/sweetalert.css') }}
 
@@ -161,6 +161,8 @@
 {{ HTML::script('/plugins/fastclick/fastclick.js') }}
 {{ HTML::script('/js/app.min.js') }}
 {{ HTML::script('/plugins/sweetalert/sweetalert.min.js') }}
+{{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js')}}
+
 
 @yield('scripts')
 

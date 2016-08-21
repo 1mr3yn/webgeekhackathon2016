@@ -7,59 +7,58 @@
     </h1>
 </section>
 
-<section class="content">
+<section class="content" id="app">
  <div class="row">
       <div class="col-xs-4">
           <div class="box box-danger">
             <div class="box-body table-responsive no-padding">
+
               <table class="table table-hover">
-                <tbody><tr>
+                <thead>
+                 <tr>
                   <th>User</th>
                   <th>Timestamp</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                  <th>Reason</th>
+                  <th>Type</th>
+                  <th>Remarks</th>
+                  <th></th>
                 </tr>
-                <tr>
-                  <td>183</td>
-                  <td>John Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-success">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet</td>
-                </tr>
-                <tr>
-                  <td>219</td>
-                  <td>Alexander Pierce</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-warning">Pending</span></td>
-                  <td>Bacon ipsum dolor sit amet</td>
-                </tr>
-                <tr>
-                  <td>657</td>
-                  <td>Bob Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-primary">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet</td>
-                </tr>
-                <tr>
-                  <td>175</td>
-                  <td>Mike Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-danger">Denied</span></td>
-                  <td>Bacon ipsum dolor sit amet</td>
-                </tr>
-              </tbody></table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
+              </thead>
 
-        <div class="col-xs-8">
-          
+              <tbody>
+                <tr v-for="alert in alerts">
+                  <td>@{{alert.user.name}}</td>
+                  <td><small> @{{alert.created_at}} </small></td>
+                  <td>
+                   <a href="#" @click="locateUser(alert)">
+                     <span class="btn btn-danger btn-xs">@{{alert.type}}</span>
+                    </a>
+                  </td>
+                  <td>@{{alert.remarks}}</td>
+                  <td><button class="btn btn-primary btn-xs" 
+                      @click="sendAction(alert.id)">Acknowledge</button>
+                  </td> 
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+
+
+       </div>
+
+        <div class="col-xs-4">
           <div class="box box-danger">
             <div class="box-body">
-               <div class="notification"></div>
+               <div id="map"></div>
+            </div>
+          </div>
+        </div>
+
+          <div class="col-xs-4">
+          <div class="box box-danger">
+            <div class="box-body">
+              <div class="notification">
+               <div id="places"> <div>
             </div>
           </div>
         </div>
@@ -70,15 +69,20 @@
 @endsection
 
 @section('scripts')
+
+{{ HTML::script('/js/alerts.js') }}
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcCoZ7FPJ1XcNZyipr6O4NKr3FrcO-Okg&callback=app.createMap&libraries=places">
+</script>
+
     <script>
 
         var pusher = new Pusher('40f9b4a93137b2be762f');
-
         var notificationsChannel = pusher.subscribe('notification-channel');
-
         notificationsChannel.bind('notification-event', function(notification){
-            var message = notification.message;
-            $('div.notification').text(message);
+            var userData = notification.userData;
+            $('div.notification').text(userData);
+            app.updateAlertList(userData);
         });
 
     </script>
