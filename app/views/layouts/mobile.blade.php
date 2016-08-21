@@ -165,6 +165,33 @@
   text-align: left;
 }
 </style>
+<script type="text/javascript">
+ $(document).ready(function(){
+     
+     var coords = {};
+
+     function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position){
+                coords = { latitude: position.coords.latitude,longitude: position.coords.longitude };
+            },function(e){                
+            },{enableHighAccuracy: true ,timeout:60000, maximumAge:600000});
+
+
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+      
+      $("div.small-box .inner").click(function(e){
+        getLocation();
+        e.preventDefault();
+        alert([coords.latitude,coords.longitude].join("--"))
+      })
+
+
+ });
+</script>
 
 
 </body>
