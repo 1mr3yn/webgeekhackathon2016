@@ -33,7 +33,7 @@ class AlertController extends \BaseController {
 	public function store()
 	{
 		$date = strtotime(Input::get('time'));
-		Alert::create([
+		$alert = Alert::create([
 		 'user_id'  => Input::get('user_id'),
 	   'lat'		=> Input::get('lat'),
 	   'lng'		=> Input::get('lng'),
@@ -42,6 +42,11 @@ class AlertController extends \BaseController {
 	   'created_at' => date("Y-m-d H:i:s",$date)
 		]);
 		Log::info("Distress Call recorded");
+
+    $user = Alert::with('user')->where('id',$alert->id)->get()->toArray();
+
+    Pusherer::trigger('notification-channel', 'notification-event', array( 'userData' => $user ));
+
 		return Response::JSON(['success'=>true]);
 	}
 
